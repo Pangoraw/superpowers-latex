@@ -13,3 +13,5 @@ Once Superpowers v1.0 is released, installing a new system will be possible in a
 ## Dependencies
 
 You must have `texlive` installed.
+
+![Screenshot](demo.png)
