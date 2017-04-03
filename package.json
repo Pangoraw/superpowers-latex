@@ -1,0 +1,16 @@
+{
+  "name": "superpowers-web-pangoraw-latex-plugin",
+  "description": "Plugin for Superpowers web",
+  "version": "0.0.1",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/pangoraw/superpowers-latex"
+  },
+  "scripts": {
+    "build": "gulp --gulpfile=../../../../../scripts/pluginGulpfile.js --cwd=."
+  },
+  "dependencies": {
+    "latex": "0.0.1",
+    "operational-transform": "^0.2.3"
+  }
+}
