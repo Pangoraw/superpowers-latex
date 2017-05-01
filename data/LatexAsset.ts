@@ -100,13 +100,20 @@ export default class LatexAsset extends SupCore.Data.Base.Asset {
     let parentPath = outputPath.slice(0, outputPath.lastIndexOf("/"));
 
     let latexStream = latex(this.pub.text);
+    latexStream.on("error", function(err: Error) {
+      console.log(err.message);
+    });
 
     mkdirp(parentPath, () => {
       let pdfFile = fs.createWriteStream(outputPath, {flags: "w", encoding: "utf-8", mode: 0o666});
       latexStream.pipe(pdfFile);
 
-      pdfFile.on("finish", function(err: any) {
-        callback(err, [ `${pathFromId}.pdf` ]);
+      pdfFile.on("error", function(err: Error) {
+        console.log(err.message);
+      });
+
+      pdfFile.on("finish", function() {
+        callback(null, [ `${pathFromId}.pdf` ]);
       });
     });
   }
